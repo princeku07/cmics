@@ -1,0 +1,118 @@
+{% extends "base.html" %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">
+    <title>Contact us</title>
+</head>
+
+<body>
+    {% block body %}
+
+    <section class="contact">
+        <style>
+            body {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: 'Poppins', sans-serif;
+            }
+
+            section.contact {
+                position: relative;
+                justify-self: center;
+                align-items: center;
+                min-height: 100vh;
+                display: flex;
+                background: #112d42;
+            }
+
+            section.contact::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 50%;
+                height: 100%;
+                background: #03a9f4;
+            }
+        </style>
+        <div class="container">
+
+            <div class="conatactinfo">
+                <div>
+                    <style>
+                        .container {
+                            position: relative;
+                            min-width: 1100px;
+                            min-height: 500px;
+                            display: flex;
+                            z-index: 1000;
+                        }
+
+                    </style>
+                    <h2>Contact Info</h2>
+                    <ul class="info">
+                        <li>
+                            <span>
+                                <img src="{% static 'img/location.png'%}" alt=""></span>
+                            <span>G-12, Veda Business Park, Bhawarkuan <br>
+                                160/4, Bholaram Ustad Marg Gate, AB Road, </span>
+                        </li>
+                        <li>
+                            <span>
+                                <img src="{% static 'img/mail.png'%}" alt=""></span>
+                            <span>chetankm@gmail.com </span>
+                        </li>
+                        <li>
+                            <span>
+                                <img src="{% static 'img/call.png'%}" alt=""></span>
+                            <span>0731-4910077, 7582877777, 9424980001</span>
+                        </li>
+                    </ul>
+                    <ul class="sci">
+                        <li><a href="#"><img src="{% static 'img/linkdin.png'%}" alt=""></a></li>
+                        <li><a href="#"><img src="{% static 'img/facebook.png'%}" alt=""></a></li>
+                    </ul>
+                </div>
+            </div>
+                   <div class="contactform">
+                     <h2>Send a message</h2>
+                       <div class="formbox">
+                         <div class="inputbox w50">
+                          <input type="text" name='required'>
+                          <span>First Name</span>
+                       </div>
+                       <div class="inputbox w50">
+                         <input type="text" name='required'>
+                          <span>Last Name</span>
+                      </div>
+                       <div class="inputbox w50">
+                          <input type="text" name='required'>
+                          <span>Phone number</span>
+                      </div>
+                      <div class="inputbox w50">
+                          <input type="text" name='required'>
+                         <span>Email Address</span>
+                     </div>
+                    <div class="inputbox w100">
+                        <textarea name="" id="" cols="30" rows="10"></textarea>
+                        <span>Write your message</span>
+                    </div>
+                </div>
+                <div class="inputbox w50">
+                    <input type="submit" value="send">
+
+                </div>
+            </div>
+        </div>
+    </section>
+    {% endblock body %}
+</body>
+
+</html>

@@ -1,0 +1,115 @@
+{% extends "another.html" %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  {% block head_title %}About{% endblock%}}
+  <link rel="stylesheet" href="{%static 'css/about.css'%}">
+  {% block body %}
+
+<body class="about">
+  <section class="pt-4 pt-md-11">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-12 col-md-5 col-lg-6 order-md-2">
+
+          <!-- Image -->
+          <img src="{% static 'img/study.png'%}" class="img-fluid mw-md-150 mw-lg-130 mb-6 mb-md-0 aos-init aos-animate"
+            alt="..." data-aos="fade-up" data-aos-delay="100">
+
+        </div>
+        <div class="col-12 col-md-7 col-lg-6  mb-5 mt-4 order-md-1 aos-init aos-animate" data-aos="fade-up">
+
+          <!-- Heading -->
+          <h1 class="display-3 text-center text-md-left">
+            Welcome to <span class="text-primary">CMICS</span>. <br>
+
+          </h1>
+
+          <!-- Text -->
+          <p class="lead text-center text-md-left text-muted mb-6 mb-lg-8">
+            Chetan Meena Istitute for Civil Services
+          </p>
+
+          <!-- Buttons -->
+          <div class="text-center text-md-left ">
+            <div class="row-lg-4">
+              <style>
+                .rounded {
+                  width: 300px;
+                  margin: auto;
+                }
+
+                .rounded img {
+                  border-radius: 50%;
+
+                }
+              </style>
+              <div class="rounded">
+                <img src="{%static 'img/sir.jpg'%}" width="300px" height="300px">
+              </div>
+              <h2>Chetan Meena</h2>
+              <p>IIt Bombay</p>
+
+            </div>
+            <div class="container " >
+            <p class="box text-left">The Managing Director of the institute, <b>Mr. Chetan Meena</b>  is a graduate in Mechanical Engineering from IIT
+              Bombay. After serving for a few years in a multinational company, he decided to prepare for the Civil
+              Services Examination. Chetan Meena Sir, who has been interviewed thrice in the Civil Services Examination
+              organized by the Union Public Service Commission, entered the field of teaching in the year 2018 and laid
+              foundation stone of the institute in January 2019 to guide the students preparing for the Civil Services
+              Examination. Chetan Sir has been popular with the students since his preparation days and his friendly
+              behavior and effective guidance has always inspired the students. During his preparation for the Civil
+              Services Examination, he discovered many innovative methods and got positive results. The basic idea of
+              ​​ <b> LIVE ANSWER WRITING </b> classes being conducted in the institute is due to the experiences of Chetan Sir.
+            </p>
+          </div>
+          </div>
+
+        </div>
+      </div> <!-- / .row -->
+    </div> <!-- / .container -->
+  </section>
+  <div class="container">
+    <div class="row">
+      <div class="card mx-3" style="width: 18rem; margin:4">
+        <img src="{%static 'img/student1.jpg'%}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">OM Trambkeshwer mishra</h5>
+          <p class="card-text"></p>
+
+        </div>
+      </div>
+      <div class="card mx-3" style="width: 18rem;">
+        <img src="{%static 'img/student2.jpg'%}" class="card-img">
+        <div class="card-body">
+          <h5 class="card-title">Princal Jain</h5>
+          <h6>CTO</h6>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container-box ">
+    <ul>
+      <li>
+        <a href="/blogs">Read blogs</a>
+      </li>
+     
+     
+      <li>
+        <a href="/subject">Syllabus</a>
+      </li>
+    </ul>
+  </div>
+
+
+</body>
+{% endblock body %}
+
+</html>

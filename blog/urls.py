@@ -1,0 +1,28 @@
+from django.contrib import admin
+from django.contrib.auth.views import LoginView,LogoutView
+from django.urls import path,re_path,include
+from . import views
+from .views import *
+
+admin.site.header = "CMICS"
+admin.site.site_title = "Welcome to CMICS Dashboard"
+admin.site.index_title = "CMICS"
+urlpatterns = [
+    # path('',views.home, name ='home'),
+    path('',HomeView.as_view(), name ='home'),
+    path('about',views.about, name ='about'),
+    path('blog/<int:pk>',blogDetailview.as_view(), name ='blog-detail'),
+    
+    path('contact',views.contact, name='contact'),
+    # path('CurrentAffairs', views.CurrentAffairs,name='CurrentAffairs')
+    path('blog',BlogView.as_view(),name='blog'),
+    path('forum/<int:pk>',forumdetailview.as_view(),name='forum-detail'),
+    path('courses', views.courses,name='courses'),
+    path('forum', forumView.as_view(),name='forum'),
+    path('question', views.question,name='question'),
+    path('downloads', views.downloads,name='downloads'),
+    path('forumcomment/<int:pk>/comment/',forumcomment.as_view(),name='forumcomment'),
+    path('another', views.another,name='another'),
+    path('onlinquiz',views.onlinequiz,name='onlinequiz')
+    
+]

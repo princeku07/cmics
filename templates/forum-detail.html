@@ -1,0 +1,70 @@
+{% extends "another.html" %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block head_title %}forum{% endblock%}}
+</head>
+
+<body>
+    {% block body %}
+    <div class="container text-center "></div>
+    <div class="jumbotron mt-4 mx-3" style="background-color: rgb(235, 245, 250); border-radius:8px;margin:3">
+        <h3 class="display-8 text-center"><a href="{% url 'forum-detail' forum.pk %}"> {{forum.title}}</h3></a>
+        <div class="mb-1 text-muted mx-3">{{forum.pub_date|date}}</div>
+        <hr class="my-4">
+
+        <p class="mx-3" >{{forum.content | safe}}</p>
+        <div class="container">
+            <h4>Comments...</h4>
+            {% if not forum.comments.all %}
+            No Comments Yet.. <a href="{%url 'forumcomment' forum.pk%}">Add comment</a> 
+            <br>
+            <div class="form-group">
+                <form method="POST" enctype="multipart/form-data" >
+                    {%csrf_token%}
+                    {{form.as_p}}
+                    
+                   
+                </div>
+            {%else%}
+            <a href="{%url 'forumcomment' forum.pk%}" class="btn btn-primary">Add answer</a> 
+            <br>
+            
+            {% for comment in forum.comments.all %}
+            <strong>{{comment.name}} -
+                {{comment.date_added}} 
+            <br>
+            {{comment.body}}
+            <div class="container">
+                <img src='{{ comment.image.url }}' sizes="30px">
+            </div>
+            
+            <hr>
+        </strong>
+            {% endfor %}
+            {% endif %}
+
+            <br>
+            
+            <br>
+            <!-- <div class="form-group">
+                <form method="POST" enctype="multipart/form-data" >
+                    {%csrf_token%}
+                    {{form.as_p}}
+                    
+                    <button class="btn btn-secondary">add answer</button>
+                </div> -->
+        </div>
+       
+  
+       
+        </div>
+        {% endblock body %}
+</body>
+
+</html>
