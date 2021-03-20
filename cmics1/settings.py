@@ -25,9 +25,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'bx*4d)%%hu5j4v$a2)!zf3!&=i45e-pb1$%@35bj&*xe@-c3nk'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['cmics.herokuapp.com','127.0.0.1']
+ALLOWED_HOSTS = ['cmics.herokuapp.com','127.0.0.1','0.0.0.0:5000']
 
 
 # Application definition
@@ -119,12 +119,7 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-DJANGORESIZED_DEFAULT_SIZE = [1920, 1080]
-DJANGORESIZED_DEFAULT_QUALITY = 75
-DJANGORESIZED_DEFAULT_KEEP_META = True
-DJANGORESIZED_DEFAULT_FORCE_FORMAT = 'JPEG'
-DJANGORESIZED_DEFAULT_FORMAT_EXTENSIONS = {'JPEG': ".jpg"}
-DJANGORESIZED_DEFAULT_NORMALIZE_ROTATION = True
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
