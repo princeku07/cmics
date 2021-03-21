@@ -30,7 +30,7 @@ SECRET_KEY = 'bx*4d)%%hu5j4v$a2)!zf3!&=i45e-pb1$%@35bj&*xe@-c3nk'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['cmics.herokuapp.com']
+ALLOWED_HOSTS = ['cmics.herokuapp.com','127.0.0']
 
 
 # Application definition
