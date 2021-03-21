@@ -19,10 +19,12 @@ urlpatterns = [
     path('forum/<int:pk>',forumdetailview.as_view(),name='forum-detail'),
     path('courses', views.courses,name='courses'),
     path('forum', forumView.as_view(),name='forum'),
-    path('question', views.question,name='question'),
-    path('downloads', views.downloads,name='downloads'),
+    # path('question', views.question,name='question'),
+    path('downloads', downloads.as_view(),name='downloads'),
     path('forumcomment/<int:pk>/comment/',forumcomment.as_view(),name='forumcomment'),
     path('another', views.another,name='another'),
-    path('onlinquiz',views.onlinequiz,name='onlinequiz')
+    path('onlinquiz',views.onlinequiz,name='onlinequiz'),
+    path('question',questionView.as_view(),name='question'),
+    path('note',NoteView.as_view(),name='note')
     
 ]

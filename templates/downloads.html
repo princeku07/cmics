@@ -1,5 +1,13 @@
 {% extends "another.html" %}
 {%load static%}
 {% block body %}
-this is download page
+{%for document in object_list%}
+<div class="container mt-3">{{document.title}}
+    <br>
+<a href="{{ document.download.url}}" download class="btn btn-primary float-right"> Download</a>
+</div>
+<br>
+<br>
+<br>
+{%endfor%}
 {% endblock body %}

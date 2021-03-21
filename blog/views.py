@@ -16,7 +16,7 @@ from django.conf import settings
 from datetime import date, timedelta
 from django.db.models import Q
 from django.core.mail import send_mail
-
+from django.views import generic
 from django.contrib.auth.models import User
 
 
@@ -45,13 +45,29 @@ class BlogView(ListView):
      template_name = 'blog.html'
      ordering = ['id']
 def courses(request):
+    
     return render(request,'course.html')
-def question(request):
-    return render(request,'question.html')
+# class courses(ListView):
+#     model = courses
+#     template_name = 'course.html'
+#     ordering = ['id']
+class NoteView(ListView):
+    model= notes
+    template_name = 'note.html'   
+class questionView(ListView):
+    model = QA
+    template_name = 'question.html'
+
+    
 def onlinequiz(request):
     return render(request,'onlinequiz.html')
-def downloads(request):
-    return render(request,'downloads.html')
+class downloads(ListView):
+    model = download
+    fields = ['download']
+    template_name ='downloads.html'     
+
+# def downloads(request):
+#     return render(request,'downloads.html')
 class forumView(ListView):
     model = forum
     template_name = 'forum.html'

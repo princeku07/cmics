@@ -21,6 +21,25 @@ class commentblog(models.Model):
     def __str__(self):
         return '%s - %s' % (self.Blog.title, self.name)
     
+class courses(models.Model):
+    title = models.CharField(max_length=100)
+    course = models.CharField(max_length=500)
+    def __str__(self):
+        return self.title
+    
+class notes(models.Model):
+    title = models.CharField(max_length=100)
+    notes = models.CharField(max_length=500)
+    def __str__(self):
+        return self.title
+class download(models.Model):
+    title = models.CharField(max_length=100)
+    download = models.FileField(upload_to='documents')
+class QA(models.Model):
+    title = models.CharField(max_length=100)
+    course = models.CharField(max_length=500)
+    def __str__(self):
+        return self.title
 
 class question(models.Model):
     title = models.CharField(max_length=100)

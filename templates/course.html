@@ -1,4 +1,19 @@
 {% extends "another.html" %}
-{% block body %}
-this is course
-{% endblock body %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block head_title %}courses{% endblock%}}
+</head>
+{%block body%}
+<body>
+    <div class="container mt-3 text-center">
+        <h2>Courses</h2>
+    </div>
+
+{%endblock body%}
+</body>
+</html>
