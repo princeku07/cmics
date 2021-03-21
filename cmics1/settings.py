@@ -115,10 +115,15 @@ WSGI_APPLICATION = 'cmics1.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'd4m41jj35c4nco',
+        'USER': 'hwbofsveyibpnd',
+        'PASSWORD':'f3f919bffa574346c5ca6f5f79f6e958052aa47df41984d3f12745da79228e37',
+        'HOST': 'ec2-52-7-115-250.compute-1.amazonaws.com',
+        'PORT':'5432',
     }
 }
+
 
 
 # Password validation
