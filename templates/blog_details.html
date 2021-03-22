@@ -11,12 +11,13 @@
 </head>
 <body>
     {% block body %}
-    <div class="container text-center"></div>
+    <div class="container text-center">
     <div class="jumbotron mt-4" style="background-color: rgb(235, 245, 250); border-radius:8px;">
         <h3 class="display-8"><a href="{% url 'blog-detail' blog.pk %}"> {{blog.title}}</h3></a>
         <div class="mb-1 text-muted">{{blog.date_time|date}}</div>
         <hr class="my-4">
         <p>{{blog.content | safe}}</p>
+        </div>
     <div class="container">
 
     
