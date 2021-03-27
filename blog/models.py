@@ -1,6 +1,7 @@
 from django.db import models
 from django_resized import ResizedImageField
 from datetime import datetime,date
+from ckeditor.fields import RichTextField
 
 # Create your models here.
 class Blog(models.Model):
@@ -29,7 +30,7 @@ class courses(models.Model):
     
 class notes(models.Model):
     title = models.CharField(max_length=100)
-    notes = models.CharField(max_length=500)
+    notes = RichTextField(blank=True,null=True)
     def __str__(self):
         return self.title
 class download(models.Model):
