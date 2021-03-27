@@ -30,7 +30,7 @@ class courses(models.Model):
     
 class notes(models.Model):
     title = models.CharField(max_length=100)
-    notes = RichTextField(blank=True,null=True)
+    notes = models.TextField(blank=True,null=True)
     def __str__(self):
         return self.title
 class download(models.Model):
