@@ -15,6 +15,7 @@
         integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
         crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  
 </head>
 
 <body>
@@ -28,6 +29,8 @@
 
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
+                    
+                    <span id="hello-msg"> Hello , {{request.user}}</span>
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
                             <a class="nav-link" aria-current="page" href="{% url 'home' %}">Home</a>
@@ -38,18 +41,25 @@
                          <li class="nav-item">
                             <a class="nav-link" aria-current="page" href="http://chetanmeenasias.com/E-Learning/">Online Test</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="/note">Notes</a>
-                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"><i class="fa fa-book" aria-hidden="true"></i>
+                            </a>
+                            <ul class="dropdown-menu" style="background-color: #064964;">
+                              <li><a class="dropdown-item" href="/note">Notes</a></li>
+                              <li><hr class="dropdown-divider"></li>
+                              <li><a class="dropdown-item" href="/downloads">Downloads</a></li>
+                              <li><hr class="dropdown-divider"></li>
+                              <li><a class="dropdown-item" href="/question">Q&A</a></li>
+                              
+                              
+                            </ul>
+                          </li>
+                        
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'blog'%}">Current Affairs</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="/question">Q&A</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="/downloads">Downloads</a>
-                        </li>
+                       
+                        
                         <li class="nav-item">
                             <a class="nav-link" aria-current="page" href="{% url 'forum'%}">Forum</a>
                         </li>
@@ -62,12 +72,39 @@
                         <li class="nav-item{% block blogsactive%} active {% endblock blogsactive%}">
                             <a class="nav-link" style="color: rgb(255, 255, 255);" href="/about">About Us</a>
                         </li>
+                        
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"><i class="fa fa-user" aria-hidden="true"></i>
+                            </a>
+                            <ul class="dropdown-menu" style="background-color: #064964;">
+                              <li><a class="dropdown-item" href="{%url 'register'%}"><button type="button" class="btn btn-info">Signup</button></a></li>
+                              <li><hr class="dropdown-divider"></li>
+                              <li><a class="dropdown-item" href="{%url 'logout'%}"><button type="button" class="btn btn-info">Logout</button></a></li>
+                              <li><hr class="dropdown-divider"></li>
+                              
+                              
+                              
+                            </ul>
+                          </li>
+
                        
+                        
                     </ul>
                 </div>
             </div>
+            
         </nav>
     </section>
+    <style>
+        #hello-msg{
+            font-size: 20px;
+            color: rgb(255, 255, 255);
+            margin-right:20px ;
+        }
+    </style>
+    
+    
+
     {% block body %}
 
     {% endblock body %}
@@ -83,7 +120,7 @@
                                 <h4 class="widget-title" > <b> Links </b></h4>
                                 <a href="/about" class="mega-menu-link" style="text-decoration: none;color:white">About Us</a>
                                 <a href="/downloads" class="mega-menu-link"style="text-decoration: none;color:white">Downloads</a>
-                                 <a href="/blogs" class="mega-menu-link"style="text-decoration: none;color:white">Blogs</a>
+                                 <a href="{% url 'blog'%}" class="mega-menu-link"style="text-decoration: none;color:white">Blogs</a>
 
                                 
                             </ul>

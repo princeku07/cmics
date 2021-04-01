@@ -1,5 +1,5 @@
 from django.contrib import admin
-from django.contrib.auth.views import LoginView,LogoutView
+from django.contrib.auth.decorators import login_required
 from django.urls import path,re_path,include
 from . import views
 from .views import *
@@ -21,10 +21,14 @@ urlpatterns = [
     path('forum', forumView.as_view(),name='forum'),
     # path('question', views.question,name='question'),
     path('downloads', downloads.as_view(),name='downloads'),
+    path('blogcomment/<int:pk>/comment/',blogcomment.as_view(),name='blogcomment'),
     path('forumcomment/<int:pk>/comment/',forumcomment.as_view(),name='forumcomment'),
     path('another', views.another,name='another'),
     path('onlinquiz',views.onlinequiz,name='onlinequiz'),
     path('question',questionView.as_view(),name='question'),
-    path('note',NoteView.as_view(),name='note')
+    path('note',NoteView.as_view(),name='note'),
+    path('register', views.register,name='register'),
+    path('login', views.loginpage,name='login'),
+    path('logout', views.logoutUser,name='logout'),
     
 ]

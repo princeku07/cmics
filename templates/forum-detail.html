@@ -22,7 +22,7 @@
         <div class="container">
             <h4>Comments...</h4>
             {% if not forum.comments.all %}
-            No Comments Yet.. <a href="{%url 'forumcomment' forum.pk%}">Add comment</a> 
+            No Comments Yet..  {{request.user}},<a href="{%url 'forumcomment' forum.pk%}">  Add your comment</a> 
             <br>
             <div class="form-group">
                 <form method="POST" enctype="multipart/form-data" >

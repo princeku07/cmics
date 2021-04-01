@@ -10,12 +10,24 @@
 </head>
 <body>
     {% block body %}
-    <div class="container mt-3">
-    <h2> Questions Section</h2></div>
-<div class="container mt-3">
+    <div class="container text-center mt-3">
+        <h1 class="display-3 text-center text-md-left">
+            Question <span class="text-primary">Section</span> <br>
+            
+          </h1></div>
+          <style>
+              #content{
+                  background-color: rgb(226, 243, 243);
+                  box-shadow: 8px 10px 10px 10px rgb(235, 235, 235);
+              }
+          </style>
+<div class="container mt-3 mb-5" id="content">
     {%for question in object_list%}
-    <h3>{{question.title}}</h3>
-    <p>{{question.course}}</p>
+    <h3 class="mt-2">{{question.title}}</h3>
+    <div class="mb-1 text-muted mx-3">{{question.pub_date|date}}</div>
+    
+    <p>{{question.content | safe}}</p>
+    <hr class="my-2">
     {%endfor%}
 </div>
 

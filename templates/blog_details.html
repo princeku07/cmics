@@ -23,10 +23,22 @@
     <div class="container">
 
     
-        <h2>Comments...</h2>
-        {% if not blog.comments.all %}
-        No Comments Yet.. <a href="#">Add one</a>
-        {%else%}
+        <div class="container">
+            <h4>Comments...</h4>
+            {% if not blog.comments.all %}
+            No Comments Yet.. <a href="{%url 'blogcomment' blog.pk%}">Add comment</a> 
+            <br>
+            <div class="form-group">
+                <form method="POST" enctype="multipart/form-data" >
+                    {%csrf_token%}
+                    {{form.as_p}}
+                    
+                   
+                </div>
+            {%else%}
+            <a href="{%url 'blogcomment' blog.pk%}" class="btn btn-primary">Add comment</a> 
+            <br>
+        
         {% for comment in blog.comments.all %}
         <strong>{{comment.name}} -
             {{comment.date_added}} 
@@ -36,7 +48,8 @@
     </strong>
         {% endfor %}
         {% endif %}
-    
+    </div>
+</div>
     {% endblock body %}
 </body>
 </html>

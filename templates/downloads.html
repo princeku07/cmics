@@ -1,5 +1,6 @@
 {% extends "another.html" %}
 {%load static%}
+<title>{% block head_title %}Downloads {% endblock %} </title>
 {% block body %}
 {%for document in object_list%}
 <div class="container mt-3">{{document.title}}

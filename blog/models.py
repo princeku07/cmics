@@ -2,6 +2,7 @@ from django.db import models
 from django_resized import ResizedImageField
 from datetime import datetime,date
 from ckeditor.fields import RichTextField
+from django.contrib.auth.models import User
 
 # Create your models here.
 class Blog(models.Model):
@@ -31,6 +32,8 @@ class courses(models.Model):
 class notes(models.Model):
     title = models.CharField(max_length=100)
     notes = models.TextField(blank=True,null=True)
+    pub_date = models.DateTimeField(auto_now_add=True,null=True)
+    published = models.BooleanField(default=True)
     def __str__(self):
         return self.title
 class download(models.Model):
@@ -38,17 +41,19 @@ class download(models.Model):
     download = models.FileField(upload_to='documents')
 class QA(models.Model):
     title = models.CharField(max_length=100)
-    course = models.CharField(max_length=500)
-    def __str__(self):
-        return self.title
-
-class question(models.Model):
-    title = models.CharField(max_length=100)
     content = models.TextField(null=True,blank=True)
     pub_date = models.DateTimeField(auto_now_add=True,null=True)
     published = models.BooleanField(default=True)
     def __str__(self):
         return self.title
+
+# class question(models.Model):
+#     title = models.CharField(max_length=100)
+#     content = models.TextField(null=True,blank=True)
+#     pub_date = models.DateTimeField(auto_now_add=True,null=True)
+#     published = models.BooleanField(default=True)
+#     def __str__(self):
+#         return self.title
 class forum(models.Model):
     title = models.CharField(max_length=100)
     # content = RichTextField(blank=True,null=True)
@@ -83,7 +88,16 @@ class Contact(models.Model):
     def __str__(self):
         return self.name
 
-
+class Profile(models.Model):
+    user = models.OneToOneField(User,null=True,on_delete=models.CASCADE)
+    name = models.CharField(max_length=200,null=True)
+    phone =  models.CharField(max_length=200,null=True)
+    email =  models.CharField(max_length=200,null=True)
+    date_created = models.DateTimeField(auto_now_add=True,null=True)
+    
+    def __str__(self):
+        return self.name
+    
 
 
 
