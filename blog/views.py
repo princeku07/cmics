@@ -48,7 +48,7 @@ class BlogView(ListView):
      model = Blog
      template_name = 'blog.html'
      ordering = ['id']
-@login_required(login_url='login')
+
 def courses(request):
     
     return render(request,'course.html')
