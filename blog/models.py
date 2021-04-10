@@ -3,14 +3,18 @@ from django_resized import ResizedImageField
 from datetime import datetime,date
 from ckeditor.fields import RichTextField
 from django.contrib.auth.models import User
+from ckeditor.fields import RichTextField
+from ckeditor_uploader.fields import RichTextUploadingField
 
 # Create your models here.
+
 class Blog(models.Model):
     title = models.CharField(max_length=100)
-    content = models.TextField(null=True,blank=True)
+    content = RichTextUploadingField(null=True,blank=True)
     pub_date = models.DateTimeField(auto_now_add=True,null=True)
     published = models.BooleanField(default=True)
     snippet = models.CharField(max_length=500,default="click to read more")
+    
     def __str__(self):
         return self.title
 class commentblog(models.Model):
@@ -31,9 +35,11 @@ class courses(models.Model):
     
 class notes(models.Model):
     title = models.CharField(max_length=100)
-    notes = models.TextField(blank=True,null=True)
+    notes = RichTextUploadingField(blank=True,null=True)
     pub_date = models.DateTimeField(auto_now_add=True,null=True)
     published = models.BooleanField(default=True)
+    pdf_file = models.FileField(upload_to='documents',default='')
+    snippet = models.CharField(max_length=500,default="click to read more")
     def __str__(self):
         return self.title
 class download(models.Model):
@@ -41,9 +47,10 @@ class download(models.Model):
     download = models.FileField(upload_to='documents')
 class QA(models.Model):
     title = models.CharField(max_length=100)
-    content = models.TextField(null=True,blank=True)
+    content = RichTextUploadingField(null=True,blank=True)
     pub_date = models.DateTimeField(auto_now_add=True,null=True)
     published = models.BooleanField(default=True)
+    snippet = models.CharField(max_length=500,default="click to read more")
     def __str__(self):
         return self.title
 
@@ -57,7 +64,7 @@ class QA(models.Model):
 class forum(models.Model):
     title = models.CharField(max_length=100)
     # content = RichTextField(blank=True,null=True)
-    content = models.TextField(null=True,blank=True)
+    content = RichTextUploadingField(null=True,blank=True)
     pub_date = models.DateTimeField(auto_now_add=True,null=True)
     published = models.BooleanField(default=True)
     snippet = models.CharField(max_length=500,default="read more")

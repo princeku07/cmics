@@ -12,7 +12,7 @@
 <body>
     {% block body %}
     <div class="container">
-    <div class="jumbotron mt-4" style="background-color: rgb(235, 245, 250); border-radius:8px;">
+    <div class="jumbotron mt-4 p-3" style="background-color: rgb(253, 253, 253); border-radius:8px; box-shadow: 0 5px 15px rgba(0, 0, 0, .1);">
         <h3 class="display-8"><a href="{% url 'blog-detail' blog.pk %}"> {{blog.title}}</h3></a>
         <div class="mb-1 text-muted">{{blog.date_time|date}}</div>
         <hr class="my-4">

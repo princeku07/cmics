@@ -27,8 +27,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'bx*4d)%%hu5j4v$a2)!zf3!&=i45e-pb1$%@35bj&*xe@-c3nk'
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+# SECURITY Wadmin/blog/blog/ARNING: don't run with debug turned on in production!
+DEBUG = True
 
 ALLOWED_HOSTS = ['cmics.herokuapp.com','127.0.0','www.cmics.in']
 
@@ -43,16 +43,12 @@ DEFAULT_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'ckeditor',
+    'ckeditor_uploader'
    
-
-    
- 
-    
-    
-    
-
-    
+   
 ]
+CKEDITOR_UPLOAD_PATH = 'uploads/'
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
@@ -112,22 +108,22 @@ WSGI_APPLICATION = 'cmics1.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#     }
-# }
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'd4m41jj35c4nco',
-        'USER': 'hwbofsveyibpnd',
-        'PASSWORD':'f3f919bffa574346c5ca6f5f79f6e958052aa47df41984d3f12745da79228e37',
-        'HOST': 'ec2-52-7-115-250.compute-1.amazonaws.com',
-        'PORT':'5432',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'd4m41jj35c4nco',
+#         'USER': 'hwbofsveyibpnd',
+#         'PASSWORD':'f3f919bffa574346c5ca6f5f79f6e958052aa47df41984d3f12745da79228e37',
+#         'HOST': 'ec2-52-7-115-250.compute-1.amazonaws.com',
+#         'PORT':'5432',
+#     }
+# }
 
 
 

@@ -27,6 +27,7 @@ class BlogForm(forms.ModelForm):
         widgets = {
             'name': forms.TextInput(attrs={'class':'form-control'}),
             'body':forms.Textarea(attrs={'class':'form-control'}),
+            'category':forms.Select(attrs={'class': 'form-control'}),
             
         }
     

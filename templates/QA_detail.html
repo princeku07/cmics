@@ -1,0 +1,29 @@
+
+    {% extends "another.html" %}
+    {% load static %}
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        {% block head_title %}Q&A{% endblock%}}
+    </head>
+    <body>
+        {% block body %}
+        <div class="container">
+        <div class="jumbotron mt-4" style="background-color: rgb(235, 245, 250); border-radius:8px;">
+            <h3 class="display-8"><a href="{% url 'QA_detail' question.pk %}"> {{QA.title}}</h3></a>
+            <div class="mb-1 text-muted">{{QA.pub_date|date}}</div>
+            <hr class="my-4">
+            <p>{{QA.content | safe}}</p>
+            </div>
+            </div>
+            
+        
+           
+    
+        {% endblock body %}
+    </body>
+    </html>
+    

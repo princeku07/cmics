@@ -2,7 +2,7 @@
 {%load static%}
 <title>{% block head_title %}Downloads {% endblock %} </title>
 {% block body %}
-{%for document in object_list%}
+<!-- {%for document in object_list%}
 <div class="container mt-3">{{document.title}}
     <br>
 <a href="{{ document.download.url}}" download class="btn btn-primary float-right"> Download</a>
@@ -10,5 +10,27 @@
 <br>
 <br>
 <br>
-{%endfor%}
+{%endfor%} -->
+<body>
+     
+<div class="container mt-3 mb-3" >
+<table class="table table-hover" style="width:50%">
+    
+    <tr>
+      <th>Topic</th>
+      
+      <th>Download</th>
+    </tr>
+    {%for document in object_list%}
+    <tr>
+      <td>{{document.title}}</td>
+      
+      <td><a href="{{ document.download.url}}" download > <i class="fa fa-download" aria-hidden="true"></i></a></td>
+    </tr>
+   
+    {%endfor%}
+  </table> 
+</div>
+
+</body>
 {% endblock body %}

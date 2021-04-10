@@ -1,4 +1,6 @@
-
+from django.core.paginator import Paginator
+from django.core.paginator import EmptyPage
+from django.core.paginator import PageNotAnInteger
 from datetime import datetime
 from django.shortcuts import render,HttpResponse
 from .models import *
@@ -12,7 +14,7 @@ from django.shortcuts import render,redirect,reverse
 from . import forms,models
 from .forms import CommentForm,BlogForm
 from django.contrib.auth.models import Group
-from django.http import HttpResponseRedirect
+from django.http import HttpResponse
 from django.views.generic import ListView,DetailView,CreateView
 from django.conf import settings
 from datetime import date, timedelta
@@ -48,6 +50,8 @@ class BlogView(ListView):
      model = Blog
      template_name = 'blog.html'
      ordering = ['id']
+     paginate_by = 4
+     paginate_orphans = 1
 
 def courses(request):
     
@@ -59,12 +63,22 @@ def courses(request):
 
 class NoteView(ListView):
     model= notes
-    
+    fields = ['pdf_file']
     template_name = 'note.html' 
+    paginate_by = 4
+    paginate_orphans = 1
+class Notedetailview(DetailView):
+    model = notes
+    fields = ['pdf_file']
+    template_name = 'notes_detail.html'
       
 class questionView(ListView):
     model = QA
     template_name = 'question.html'
+class Questiondetailview(DetailView):
+    model = QA
+    template_name = 'QA_detail.html'
+
 
     
 def onlinequiz(request):
@@ -152,3 +166,15 @@ def loginpage(request):
 def logoutUser(request):
     logout(request)
     return redirect('login')
+def searchBlogs(request):
+    query = request.GET.get('query')
+    if len(query) > 60:
+        allblogs = Blog.objects.none()
+    else:
+        allblogstitle = Blog.objects.filter(title__icontains = query)
+        allblogscontent = Blog.objects.filter(content__icontains= query)
+        allblogs = allblogstitle.union(allblogscontent)
+    if allblogs.count() == 0:
+        messages.error(request,"No search result found")
+    params = {'allblogs': allblogs,'query':query}
+    return render(request,'searchblog.html',params)

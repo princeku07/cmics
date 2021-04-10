@@ -1,0 +1,35 @@
+
+    {% extends "another.html" %}
+    {% load static %}
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        {% block head_title %}notes{% endblock%}}
+    </head>
+    <body>
+        {% block body %}
+        <div class="container">
+        <div class="jumbotron mt-4 p-3 mb-3" style="background-color: rgb(253, 253, 253); border-radius:8px; box-shadow: 0 5px 15px rgba(0, 0, 0, .1);">
+            <h3 class="display-8"><a href="{% url 'notes_detail' notes.pk %}"> {{notes.title}}</h3></a>
+            <div class="mb-1 text-muted">{{notes.pub_date|date}}</div>
+            
+            
+            
+            <hr class="my-4">
+            
+            <p>{{notes.notes | safe}}</p>
+           
+        </div>
+            </div>
+            
+            
+        
+           
+    
+        {% endblock body %}
+    </body>
+    </html>
+    

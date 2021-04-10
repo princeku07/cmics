@@ -14,7 +14,7 @@ body
     z-index: 10;
 }
 .navbar{
-    background-image: linear-gradient(to right,#a5d3df,#064964,#0a4864);
+    background-image: linear-gradient(to right,#95dff1,#064964,#0a4864);
     padding: 0 !important;
 }
 .navbar-brand img
@@ -81,7 +81,7 @@ body
 {
     padding: 20px;
     padding: 0;
-    box-shadow: 8px 10px 10px 10px rgb(189, 233, 233);
+    box-shadow: 8px 10px 10px 10px rgb(238, 238, 238);
 }
 .services h4{
     padding: 5px;

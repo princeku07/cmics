@@ -28,7 +28,11 @@ urlpatterns = [
     path('question',questionView.as_view(),name='question'),
     path('note',NoteView.as_view(),name='note'),
     path('register', views.register,name='register'),
+    path('searchblogs', views.searchBlogs,name='searchblogs'),
+ 
     path('login', views.loginpage,name='login'),
     path('logout', views.logoutUser,name='logout'),
+    path('note/<int:pk>',Notedetailview.as_view(), name ='notes_detail'),
+    path('question/<int:pk>',Questiondetailview.as_view(), name ='QA_detail'),
     
 ]

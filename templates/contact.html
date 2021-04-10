@@ -25,7 +25,7 @@
   </div>
   {% endfor %}
   {% endif %}
-  <body style="background-color:rgb(228, 235, 236);">
+  <body style="background-color:rgb(255, 255, 255);">
   <div class="container" style="justify-content: center;">
     <!--Section: Contact v.2-->
     
@@ -57,13 +57,13 @@
             flex-wrap: wrap;
 
             padding: 0;
-            box-shadow: 8px 10px 10px 10px rgb(189, 233, 233);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, .1);
           }
         </style>
         <!--Grid column-->
         <div class="row mt-3" id="box">
           <form id="contact-form" name="contact-form" action="/contact" method="post"
-            style="background-color: rgb(255, 255, 255);border-radius:7px;border:solid rgb(189, 233, 233)">
+            style="background-color: rgb(255, 255, 255);border-radius:7px;">
             {% csrf_token %}
             <!--Grid row-->
             <div class="row" style="padding: 10px;">
@@ -97,7 +97,7 @@
                 <div class="col-md-12">
                   <div class="md-form" style="margin-top: 10px;">
                     <label for="desc" class="" style="font-size: 18px;">Message</label>
-                    <textarea type="text" id="message" name="desc" style="border-color: rgb(206, 205, 205);border-width:4px" class="form-control md-textarea"
+                    <textarea type="text" id="message" name="desc" style="border-color: rgb(206, 205, 205);border-width:2px" class="form-control md-textarea"
                       placeholder="How may we help you.."></textarea>
 
                   </div>
@@ -132,7 +132,7 @@
   flex-wrap: wrap;
 
   padding: 0;
-  box-shadow: 8px 10px 10px 10px rgb(213, 218, 217);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, .1);
  }
  .blocktext ul{
    padding: 20px;
