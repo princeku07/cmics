@@ -1,5 +1,5 @@
-{% extends "another.html" %}
-{% load static %}
+{%extends 'another.html'%}
+{%load static%}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,81 +7,97 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-    
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-        {% block head_title %}Blogs{% endblock%}}
+    <title>{%block head_title %} Blogs {%endblock  %}</title>
 </head>
 
 <body>
-    {% block body%}
-    <h1 class="display-3 text-center text-md-left">
-    Read <span class="text-primary">Blogs</span>
-    <style>
-      #search{
-        padding:5;
-      }
-    </style>
-    <form method="get" action="/searchblogs" class="form-inline my-2 p-3 my-lg-0" id="search">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search.." aria-label="Search" name="query" id="querys">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
-        <hr class="my-3">
-      </h1>
-    <main class="container ">
+    {%block body%}
+    <!-- ------------ AOS Library ------------------------- -->
+    <!-- <link rel="stylesheet" href="{% static 'css/aos.css' %}"> -->
 
-        {% for blog in page_obj %}
-        <div class="jumbotron mt-4 p-3" style="background-color: rgb(255, 255, 255); border-radius:8px; box-shadow: 0 5px 15px rgba(0, 0, 0, .1);">
-          <h3 class="display-8" ><a href="{% url 'blog-detail' blog.pk %}" style="text-decoration: none;"><i class="fa fa-book-open"></i>{{blog.title}}</h3></a>
-          <div class="mb-1 text-muted"><i class="fal fa-calendar-edit"></i>{{blog.pub_date|date}}</div>
-          <hr class="my-4">
-          
-          <p>{{blog.content| safe|truncatewords:"200"|linebreaks }}</p>
-          <p class="lead">
-            <a href="{% url 'blog-detail' blog.pk %}" class="btn btn-primary">Read more</a>
-          </p>
-        </div>
-  
-        {% endfor %}
-        
-<div class="my-3">
-  <!-- <span>
- {% if page_obj.has_previous%}
- <a href="?page={{page.obj.previous_page_number}}">Previous</a>
- {%endif%}
- <span>{{ page_obj.number }}</span>
- {% if page_obj.has_next %}
- <a href="?page={{page_obj.next_page_number}}">Next</a>
- {%endif%}
-</span> -->
-<nav aria-label="Page navigation example">
-  <ul class="pagination">
-    {% if page_obj.has_previous%}
-    <li class="page-item"><a class="page-link" href="?page={{page.obj.previous_page_number}}">Previous</a></li>
-    {%endif%}
-    <li class="page-item"><a class="page-link"><span>{{ page_obj.number }}</span></a></li>
-    {% if page_obj.has_next %}
-    <li class="page-item"><a class="page-link" href="?page={{page_obj.next_page_number}}">Next</a></li>
-    {%endif%}
-  </ul>
-</nav>
-</div>
+    <!-- Custom Style   -->
+    <link rel="stylesheet" href="{%static 'css/all.css'%}">
+    <link rel="stylesheet" href="{%static 'css/aos.css' %}">
+    <link rel="stylesheet" href="{%static 'css/blog.css'%}">
+    <main>
+        <section class="container ">
+            <div class="site-content" style="margin-top: 5rem;">
+                <div class="posts">
+                  {% for blog in page_obj %}
+                    <div class="post-content" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="post-image">
+                            <div>
 
-
-        </div>
-        </div>
-        </div>
-        </div>
+                                <img src="{{blog.image.url}}" class="img" alt="blog1">
+                            </div>
+                            <div class="post-info flex-row" style="background: #47b2e4;color:white;">
+                                <a href="{% url 'category' blog.category %}" style="color:white;"><span>&nbsp;&nbsp;{{blog.categories}}</span></a>
+                                <span><i
+                                        class="fas fa-calendar-alt "></i>&nbsp;&nbsp;{{blog.pub_date|date}}</span>
+                                <span></span>
+                            </div>
+                        </div>
+                        <div class="post-title">
+                            <a href="{% url 'blog-detail' blog.pk %}">{{blog.title}}</a>
+                            <p>{{blog.content| safe|truncatewords:"200"|linebreaks }}
+                            </p>
+                            <a href="{% url 'blog-detail' blog.pk %}"> <button class="btn post-btn" style="background: #47b2e4;color:white;">Read More &nbsp; <i
+                                        class="fas fa-arrow-right"></i></button></a>
+                        </div>
+                    </div>
+                    <hr>
+                    {%endfor%}
 
 
 
-        </div><!-- /.row -->
-        
+                    <div class="pagination flex-row">
+                        {% if page_obj.has_previous %}
+                        <li class="page-item"><a href="?page={{page.obj.previous_page_number}}" class="page-link">Previous</a></li>
+                        {%endif%}
+                        {% if page_obj.has_next %}
+                        <li class="page-item"><a href="?page={{page.obj.next_page_number}}" class="page-link">Next</a></li>
+                        {%endif%}
+                    </div>
+                </div>
+                <aside class="sidebar">
+                    <div class="category">
+                        <h2>Category</h2>
+                        <ul class="category-list">
+                            {% for item in cat_menu %}
+                            
+                            <a href="{% url 'category' item%}" style="background: #47b2e4;color:white;">
+                                <li class="list-items" data-aos="fade-left" data-aos-delay="100"style="background: #47b2e4;color:white;">
+                                    {{item}}
+
+                                </li>
+                            </a>
+                            {%endfor%}
+                            
+                            
+                            
+
+                        </ul>
+                    </div>
+                    
+                    
+                    
+                </aside>
+            </div>
+
+        </section>
     </main>
-    {% endblock body%}
-   
+    <script src="{% static 'js/Jquery3.4.1.min.js'%}"></script>
+
+
+    <script src="{%static 'js/jquery3.6.0.min.js'%}"></script>
+    <!-- ------------ AOS js Library  ------------------------- -->
+
+    <script src="{% static 'js/aos.js'%}"></script>
+
+    <!-- Custom Javascript file -->
+    <script src="{% static 'js/main.js'%}"></script>
+
 </body>
 
 </html>
+{%endblock body%}

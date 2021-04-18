@@ -26,12 +26,10 @@
   {% endfor %}
   {% endif %}
   <body style="background-color:rgb(255, 255, 255);">
-  <div class="container" style="justify-content: center;">
+  
     <!--Section: Contact v.2-->
     
-    <section class="mb-4">
-      
-      <div class="center" style="margin-left: 10px;">
+    
         <style>
           .container-box{
             
@@ -39,17 +37,9 @@
           }
          
         </style>
-        <div class="container-box mt-3" >
-          <!--Section heading-->
-          <h1 class="display-3 text-center text-md-left">
-            Contact <span class="text-primary">US</span> <br>
-            
-          </h1>
+       
           <!--Section description-->
-          <p class="text-center w-responsive mx-auto mb-3" style="font-size: 20px;color:rgb(0, 0, 0)">Do you have any
-            questions? Please do not hesitate to contact us
-          </p>
-        </div>
+         
         <style>
           #contact-form
           {
@@ -60,8 +50,60 @@
             box-shadow: 0 5px 15px rgba(0, 0, 0, .1);
           }
         </style>
-        <!--Grid column-->
-        <div class="row mt-3" id="box">
+        
+         
+<style>
+ .blocktext{
+  display: flex;
+  flex-wrap: wrap;
+
+  padding: 0;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, .1);
+ }
+ .blocktext ul{
+   padding: 20px;
+ }
+</style>
+         
+
+
+  
+  <section id="contact" class="contact">
+    <div class="container" data-aos="fade-up">
+
+      <div class="section-title mt-3">
+        <h2>Contact</h2>
+        <p>Contact if you have any querry</p>
+      </div>
+
+      <div class="row">
+
+        <div class="col-lg-5 d-flex align-items-stretch">
+          <div class="info">
+            <div class="address">
+              <i class="bi bi-geo-alt"></i>
+              <h4>Location:</h4>
+              <a href="https://g.page/rmulchandani?share"><p>G-12, Veda Business Park, Bhawarkuan, Indore 160/4, Bholaram Ustad Marg Gate, AB Road, Indore</p></a>
+            </div>
+
+            <div class="email">
+              <i class="bi bi-envelope"></i>
+              <h4>Email:</h4>
+              <a href="mailto:chetankm@gmail.com"><p>chetankm@gmail.com</p></a>
+            </div>
+
+            <div class="phone">
+              <i class="bi bi-phone"></i>
+              <h4>Call:</h4>
+              <p><a href="tel:0731-4910077" style="text-decoration: none;color:rgb(0, 0, 0)"> 0731-4910077 </a>, <a href="tel:7582877777" style="text-decoration: none;color:rgb(0, 0, 0)"> 7582877777 </a>,<a href="tel:9424980001" style="text-decoration: none;color:rgb(0, 0, 0)">  9424980001 </a></p>
+            </div>
+
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d325.3647712805252!2d75.86306546726301!3d22.687984536294323!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3962fcf064fb621d%3A0xcce7b89e1c4aab04!2sAB%20Road%20%26%20Bholaram%20Ustad%20Marg%2C%20Brahmapuri%20Colony%2C%20Bhanwar%20Kuwa%2C%20Indore%2C%20Madhya%20Pradesh%20452014!5e0!3m2!1sen!2sin!4v1614845197602!5m2!1sen!2sin" allowfullscreen></iframe>
+          </div>
+
+        </div>
+
+        <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
           <form id="contact-form" name="contact-form" action="/contact" method="post"
             style="background-color: rgb(255, 255, 255);border-radius:7px;">
             {% csrf_token %}
@@ -105,17 +147,8 @@
                 <!--Grid column-->
 
               </div>
-              <!--Grid row-->
-
-              <!--Grid row-->
-
-              <!--Grid row-->
-
-              <!--Grid row-->
-              <!-- <div class="row" style="margin: 10px;"> -->
-
-              <!--Grid column-->
-              <!-
+             
+            
 
 
               <br>
@@ -125,63 +158,12 @@
               <div class="status"></div>
             </div>
           </form>
-         
-<style>
- .blocktext{
-  display: flex;
-  flex-wrap: wrap;
+        </div>
 
-  padding: 0;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, .1);
- }
- .blocktext ul{
-   padding: 20px;
- }
-</style>
-          <div class="blocktext mt-4 text-center">
-            <div class="row-md-3 text-center" style=" margin-top:8px">
-              <ul class="list-unstyled mb-0 text-center">
-                
-                  <li><i class="fa fa-map-marker" aria-hidden="true"></i><a href="https://g.page/rmulchandani?share" style="text-decoration: none;color:rgb(0, 0, 0)">
-                  
-                    <p>G-12, Veda Business Park, Bhawarkuan, Indore 160/4, Bholaram Ustad Marg Gate, AB Road, Indore</p></a>
-                </li>
-                <li><i class="fa fa-phone" aria-hidden="true"></i>
-                  <p><a href="tel:0731-4910077" style="text-decoration: none;color:rgb(0, 0, 0)"> 0731-4910077 </a>, <a href="tel:7582877777" style="text-decoration: none;color:rgb(0, 0, 0)"> 7582877777 </a>,<a href="tel:9424980001" style="text-decoration: none;color:rgb(0, 0, 0)">  9424980001 </a></p>
-                </li>
-                
-                <li><i class="fa fa-envelope-o" aria-hidden="true"></i>
-                  <a style="text-decoration: none;" href="mailto:chetankm@gmail.com">chetankm@gmail.com</a>
-                </li>
-              </ul>
-            </div>
-            <!--Grid column-->
+      </div>
 
-          </div>
-
-    </section>
-    <div class="row" style="justify-content: center mt-4 mb-4;" >
-      <iframe 
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d325.3647712805252!2d75.86306546726301!3d22.687984536294323!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3962fcf064fb621d%3A0xcce7b89e1c4aab04!2sAB%20Road%20%26%20Bholaram%20Ustad%20Marg%2C%20Brahmapuri%20Colony%2C%20Bhanwar%20Kuwa%2C%20Indore%2C%20Madhya%20Pradesh%20452014!5e0!3m2!1sen!2sin!4v1614845197602!5m2!1sen!2sin"
-        width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
     </div>
-    <!--Section: Contact v.2-->
-  </div>
-  </div>
-  
-  </div>
-
-  <!-- <div id="map"></div>
-  <script>
-    function initMap() {
-      var location = { lat: 22.688042, lng: 75.863032 };
-      var map = new google.maps.Map(document.getElementById("map"), {
-        zoom: 4,
-        center: location
-      });
-    }
-  </script> -->
-
+  </section>
 </body>
 
 </html>

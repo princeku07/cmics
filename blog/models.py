@@ -5,15 +5,32 @@ from ckeditor.fields import RichTextField
 from django.contrib.auth.models import User
 from ckeditor.fields import RichTextField
 from ckeditor_uploader.fields import RichTextUploadingField
+from django.db import models
+from embed_video.fields import EmbedVideoField
 
 # Create your models here.
-
+class Category(models.Model):
+    category = models.CharField(max_length=255)
+    
+    
+    class Meta:
+        verbose_name = "Category"
+        verbose_name_plural= "Categories"
+        ordering = ['-category']
+    def __str__(self):
+        return self.category
+        
+    def get_absolute_url(self):
+        return reverse('blog')
 class Blog(models.Model):
-    title = models.CharField(max_length=100)
+    title = models.CharField(max_length=100,null=True)
+    image = models.ImageField(null=True)
     content = RichTextUploadingField(null=True,blank=True)
     pub_date = models.DateTimeField(auto_now_add=True,null=True)
-    published = models.BooleanField(default=True)
-    snippet = models.CharField(max_length=500,default="click to read more")
+    published = models.BooleanField(default=None)
+    category = models.CharField(max_length=255, default='')
+    categories = models.ForeignKey(Category,verbose_name='Category',on_delete=models.PROTECT)
+    snippet = models.CharField(max_length=500,default="click to read more",null=True)
     
     def __str__(self):
         return self.title
@@ -95,15 +112,17 @@ class Contact(models.Model):
     def __str__(self):
         return self.name
 
-class Profile(models.Model):
-    user = models.OneToOneField(User,null=True,on_delete=models.CASCADE)
-    name = models.CharField(max_length=200,null=True)
-    phone =  models.CharField(max_length=200,null=True)
-    email =  models.CharField(max_length=200,null=True)
-    date_created = models.DateTimeField(auto_now_add=True,null=True)
+
+class Vedios(models.Model):
+    title = models.CharField(max_length=100)
+    added = models.DateTimeField(auto_now_add=True)
+    url = EmbedVideoField()  # same like models.URLField()
     
     def __str__(self):
-        return self.name
+        return self.title
+
+    class Meta:
+        ordering = ['-added']
     
 
 

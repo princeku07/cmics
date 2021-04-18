@@ -29,10 +29,11 @@ urlpatterns = [
     path('note',NoteView.as_view(),name='note'),
     path('register', views.register,name='register'),
     path('searchblogs', views.searchBlogs,name='searchblogs'),
- 
+    path('video', views.video,name='video'),
     path('login', views.loginpage,name='login'),
     path('logout', views.logoutUser,name='logout'),
     path('note/<int:pk>',Notedetailview.as_view(), name ='notes_detail'),
     path('Q&A/<int:pk>',Questiondetailview.as_view(), name ='Q&A_detail'),
+    path('category/<str:cats>/',CategoryView,name='category'),
     
 ]

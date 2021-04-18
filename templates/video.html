@@ -1,0 +1,14 @@
+{% extends "another.html" %}
+{% load embed_video_tags %}
+{% load static %}
+{% block body %}
+
+<body>
+    <div class="mt-5 px-5">
+        {% for item in V%}
+        {% video item.url '426x240' %}
+        {{ item.title }}
+        {%endfor%}
+    </div>
+</body>
+{%endblock body%}

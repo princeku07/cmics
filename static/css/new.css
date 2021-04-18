@@ -14,7 +14,7 @@ body
     z-index: 10;
 }
 .navbar{
-    background-image: linear-gradient(to right,#95dff1,#064964,#0a4864);
+    background-color: #3384c7;
     padding: 0 !important;
 }
 .navbar-brand img
@@ -169,7 +169,7 @@ body
 {
     font-size: 36px;
     font-weight: 600;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
 }
 .social-icons img
 {
@@ -200,7 +200,7 @@ transition: 0.5s;
     text-align: center;
     padding: 7px;
     border-radius: 2px;
-    background-image: linear-gradient(to right,#0d4b7e,#064964,#0a4864);
+    background-image: linear-gradient(to right,#000000,#064964,#0a4864);
 }
 .footer-box .form-control
 {

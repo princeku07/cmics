@@ -25,7 +25,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate,login,logout
 from django.utils.decorators import method_decorator
-
+from .models import Vedios
 # from .forms import ContactForm
 
 # Create your views here.
@@ -36,7 +36,7 @@ from django.utils.decorators import method_decorator
 
 class HomeView(ListView):
     model = Blog
-    template_name = 'home.html'
+    template_name = 'another.html'
     ordering = ['id']
 
 class blogDetailview(DetailView):
@@ -52,6 +52,16 @@ class BlogView(ListView):
      ordering = ['-id']
      paginate_by = 4
      paginate_orphans = 1
+     def get_context_data(self,*args,**kwargs):
+        cat_menu = Category.objects.all()
+        context = super(BlogView,self).get_context_data(*args,**kwargs)
+        context["cat_menu"] = cat_menu
+        return context
+def CategoryView(request, cats):
+    category_posts = Blog.objects.filter(category= cats)
+    
+    return render(request,'categories.html',{'cats':cats,'category_posts':category_posts})
+
 
 def courses(request):
     
@@ -79,6 +89,13 @@ class questionView(ListView):
     paginate_by = 4
     paginate_orphans = 1
     ordering = ['-id']
+
+def video(request):
+    V = Vedios.objects.all()
+    context = {
+        'vedios':V
+    }
+    return render(request,'video.html',context)
 
 class Questiondetailview(DetailView):
     model = QA
