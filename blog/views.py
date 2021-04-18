@@ -49,7 +49,7 @@ class forumdetailview(DetailView):
 class BlogView(ListView):
      model = Blog
      template_name = 'blog.html'
-     ordering = ['id']
+     ordering = ['-id']
      paginate_by = 4
      paginate_orphans = 1
 
@@ -67,6 +67,7 @@ class NoteView(ListView):
     template_name = 'note.html' 
     paginate_by = 4
     paginate_orphans = 1
+    ordering = ['-id']
 class Notedetailview(DetailView):
     model = notes
     fields = ['pdf_file']
@@ -74,10 +75,14 @@ class Notedetailview(DetailView):
       
 class questionView(ListView):
     model = QA
-    template_name = 'question.html'
+    template_name = 'Q&A.html'
+    paginate_by = 4
+    paginate_orphans = 1
+    ordering = ['-id']
+
 class Questiondetailview(DetailView):
     model = QA
-    template_name = 'QA_detail.html'
+    template_name = 'Q&A_detail.html'
 
 
     
@@ -86,14 +91,15 @@ def onlinequiz(request):
 class downloads(ListView):
     model = download
     fields = ['download']
-    template_name ='downloads.html'     
+    template_name ='downloads.html' 
+    ordering = ['-id']    
 
 # def downloads(request):
 #     return render(request,'downloads.html')
 class forumView(ListView):
     model = forum
     template_name = 'forum.html'
-    ordering = ['id']
+    ordering = ['-id']
 
 class forumcomment(CreateView):
     model = forumcomment

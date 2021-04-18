@@ -25,7 +25,7 @@ urlpatterns = [
     path('forumcomment/<int:pk>/comment/',forumcomment.as_view(),name='forumcomment'),
     path('another', views.another,name='another'),
     path('onlinquiz',views.onlinequiz,name='onlinequiz'),
-    path('question',questionView.as_view(),name='question'),
+    path('Q&A',questionView.as_view(),name='Q&A'),
     path('note',NoteView.as_view(),name='note'),
     path('register', views.register,name='register'),
     path('searchblogs', views.searchBlogs,name='searchblogs'),
@@ -33,6 +33,6 @@ urlpatterns = [
     path('login', views.loginpage,name='login'),
     path('logout', views.logoutUser,name='logout'),
     path('note/<int:pk>',Notedetailview.as_view(), name ='notes_detail'),
-    path('question/<int:pk>',Questiondetailview.as_view(), name ='QA_detail'),
+    path('Q&A/<int:pk>',Questiondetailview.as_view(), name ='Q&A_detail'),
     
 ]
